@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Notes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-fab edge right top>
+    <button ion-fab color="light" mini class="fab fab-ios" style="transition: none;"><ion-icon class="fab-close-icon icon icon-ios ion-ios-close" name="close" role="img" aria-label="close"></ion-icon><span class="button-inner"><ion-icon name="add" role="img" class="icon icon-ios ion-ios-add" aria-label="add"></ion-icon></span><div class="button-effect"></div></button>
+    <ion-fab-list class>
+      <button ion-fab class="fab fab-ios fab-in-list fab-ios-in-list"><ion-icon class="fab-close-icon icon icon-ios ion-ios-close" name="close" role="img" aria-label="close"></ion-icon><span class="button-inner"><ion-icon name="logo-facebook" role="img" class="icon icon-ios ion-logo-facebook" aria-label="logo facebook"></ion-icon></span><div class="button-effect"></div></button>
+      <button ion-fab class="fab fab-ios fab-in-list fab-ios-in-list"><ion-icon class="fab-close-icon icon icon-ios ion-ios-close" name="close" role="img" aria-label="close"></ion-icon><span class="button-inner"><ion-icon name="logo-twitter" role="img" class="icon icon-ios ion-logo-twitter" aria-label="logo twitter"></ion-icon></span><div class="button-effect"></div></button>
+      <button ion-fab class="fab fab-ios fab-in-list fab-ios-in-list"><ion-icon class="fab-close-icon icon icon-ios ion-ios-close" name="close" role="img" aria-label="close"></ion-icon><span class="button-inner"><ion-icon name="logo-vimeo" role="img" class="icon icon-ios ion-logo-vimeo" aria-label="logo vimeo"></ion-icon></span><div class="button-effect"></div></button>
+      <button ion-fab class="fab fab-ios fab-in-list fab-ios-in-list"><ion-icon class="fab-close-icon icon icon-ios ion-ios-close" name="close" role="img" aria-label="close"></ion-icon><span class="button-inner"><ion-icon name="logo-googleplus" role="img" class="icon icon-ios ion-logo-googleplus" aria-label="logo googleplus"></ion-icon></span><div class="button-effect"></div></button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-item>
+    <ion-label>Convert to Markdown</ion-label>
+    <ion-toggle color="secondary" [(ngModel)]="toggleVal" checked="toggleVal" (ionChange)="convert()"></ion-toggle>
+  </ion-item>
+  <ion-item [hidden]="toggleVal">
+    <ion-textarea rows="6" [(ngModel)]="plainText"  placeholder="Start writing your markdown below..."></ion-textarea>
+  </ion-item>
+  <ion-content [hidden]="!toggleVal">
+    <div [innerHtml]="content"></div>
+  </ion-content>
+
+</ion-content>
